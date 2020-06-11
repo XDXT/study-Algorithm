@@ -27,7 +27,7 @@ public class HeapSort extends Sort {
 		Integer element = datas[index];
 
 		int half = heapSize >> 1;
-		// 非叶子节点
+		// 是非叶子节点
 		while(index < half) {
 			// 默认左边跟父节点比
 			int childIndex = (index << 1) + 1;
