@@ -11,6 +11,10 @@ public abstract class Sort implements Comparable<Sort> {
 	protected int swapCount;
 	protected long costTime;
 	
+	/**
+	 * 对外开放排序接口
+	 * @param array 数据
+	 */
 	public void sort(Integer[] array) {
 		if (null == array || array.length <= 1) {
 			return;
@@ -23,17 +27,33 @@ public abstract class Sort implements Comparable<Sort> {
 	
 	protected abstract void sort();
 	
+	/**
+	 * 根据元素位置比较数值，用于记录比较次数
+	 * @param index1 
+	 * @param index2
+	 * @return
+	 */
 	protected int compare(int index1, int index2) {
 		cmpCount++;
 		return datas[index1] - datas[index2];
 	}
 	
+	/**
+	 * 直接比较数值，用于记录比较次数
+	 * @param v1 
+	 * @param v2
+	 * @return
+	 */
 	protected int compare(Integer v1, Integer v2) {
 		cmpCount++;
 		return v1 - v2;
 	}
 
-	
+	/**
+	 * 根据元素位置交换数值，用于记录交换次数
+	 * @param index1
+	 * @param index2
+	 */
 	protected void swap(int index1, int index2) {
 		swapCount++;
 		int temp = datas[index1];
@@ -41,6 +61,11 @@ public abstract class Sort implements Comparable<Sort> {
 		datas[index2] = temp;
 	}
 	
+	/**
+	 * 格式化数字为更容易看出的字符串
+	 * @param number 数字
+	 * @return
+	 */
 	protected String formatNumber(int number) {
 		if (number < 10000) {
 			return String.valueOf(number);
@@ -51,6 +76,11 @@ public abstract class Sort implements Comparable<Sort> {
 		return String.valueOf((double)number/1.0E8) + "亿";
 	}
 	
+	/**
+	 * 返回数组排序结果
+	 * true: 排序正确
+	 * false： 排序错误
+	 */
 	protected boolean isRightSort() {
 		if (datas == null || datas.length <= 1) {
 			return true;
@@ -63,6 +93,9 @@ public abstract class Sort implements Comparable<Sort> {
 		return true;
 	}
 	
+	/**
+	 * 重写toString，记录排序信息
+	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n【" + this.getClass().getSimpleName() + "】\n");
@@ -74,10 +107,17 @@ public abstract class Sort implements Comparable<Sort> {
 		return sb.toString();
 	}
 	
+	/**
+	 * 获取排序后的数组
+	 * @return Integer[]
+	 */
 	public Integer[] getDatas() {
 		return datas;
 	}
 	
+	/**
+	 * 用于排序类的排序，便于按性能查看
+	 */
 	@Override
 	public int compareTo(Sort o) {
 		int result = (int)(this.costTime - o.costTime);

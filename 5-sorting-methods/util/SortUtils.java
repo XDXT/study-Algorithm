@@ -2,15 +2,8 @@ package util;
 
 import java.util.Random;
 
-/**
- * 工具类
- *
- * @author XDXT
- */
-
-
 public class SortUtils {
-
+	
 	/**
 	 * 数组转成字符串
 	 * @param array int型数组
@@ -62,4 +55,16 @@ public class SortUtils {
 		return ra;
 	}
 	
+	/**
+	 * 获取一个给定范围的随机整型数[start, end)
+	 * @param start 最小值(包含)
+	 * @param end 最大值(不包含)
+	 * @return
+	 */
+	public static int randomNumber(int start, int end) {
+		int value = start + (int)Math.random()*(end - start);
+		return value;
+	}
+	
+
 }

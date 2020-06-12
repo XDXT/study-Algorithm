@@ -6,8 +6,10 @@
 * 选择(Selection sort)
 * 大顶堆(Heap sort)
 * 插入(Insertion Sort)
+* 快排(Quick sort)
 
 ## 下一步
 * 归并
-* 快排
+* 二分
+* 计数
 * ...
